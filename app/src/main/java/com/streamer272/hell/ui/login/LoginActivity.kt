@@ -8,10 +8,17 @@ import androidx.compose.material.TextField
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.key.Key.Companion.Home
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.streamer272.hell.ui.login.login
+import io.ktor.http.*
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 @Composable
 fun LoginActivity(changeState: (AppState) -> Unit) {
@@ -21,11 +28,25 @@ fun LoginActivity(changeState: (AppState) -> Unit) {
 
     val login = fun() {
         var message = ""
-        if (username == "") {
-            message = "Username is required"
-        }
-        else if (password == "") {
-            message = "Password is required"
+        when {
+            username == "" -> {
+                message = "Username is required"
+            }
+            password == "" -> {
+                message = "Password is required"
+            }
+            else -> {
+    //            val result = login(username, password)
+    //            if (result.status == HttpStatusCode.OK) {
+    //                message = "Login successful"
+    //                changeState(AppState.DASHBOARD)
+    //            }
+    //            else {
+    //                message = "Login failed"
+    //            }
+                message = "Login successful"
+                changeState(AppState.DASHBOARD)
+            }
         }
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
