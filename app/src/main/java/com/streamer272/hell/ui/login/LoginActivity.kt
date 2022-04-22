@@ -53,7 +53,9 @@ fun LoginActivity(changeState: (AppState) -> Unit) {
     ) {
         Text(text = "Log in", textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth(), fontSize = 40.sp)
 
-        Column {
+        Column(
+            modifier = Modifier.padding(bottom = 48.dp)
+        ) {
             TextField(
                 value = username,
                 onValueChange = fun (newUsername: String) {
