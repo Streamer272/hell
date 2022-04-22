@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.*
+import com.streamer272.hell.ui.login.LoginActivity
 import com.streamer272.hell.ui.theme.HellTheme
 
 class MainActivityClass : ComponentActivity() {
