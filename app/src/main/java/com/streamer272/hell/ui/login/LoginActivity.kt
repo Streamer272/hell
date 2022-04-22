@@ -14,6 +14,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.streamer272.hell.AppState
+import io.ktor.http.*
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
 
 @Composable
 fun LoginActivity(changeState: (AppState) -> Unit) {
@@ -22,28 +25,24 @@ fun LoginActivity(changeState: (AppState) -> Unit) {
     var password by remember { mutableStateOf("") }
 
     val login = fun() {
-        var message = ""
-        when {
-            username == "" -> {
-                message = "Username is required"
-            }
-            password == "" -> {
-                message = "Password is required"
-            }
-            else -> {
-    //            val result = login(username, password)
-    //            if (result.status == HttpStatusCode.OK) {
-    //                message = "Login successful"
-    //                changeState(AppState.DASHBOARD)
-    //            }
-    //            else {
-    //                message = "Login failed"
-    //            }
-                message = "Login successful"
+        if (username == "") {
+            return Toast.makeText(context, "Username is required", Toast.LENGTH_SHORT).show()
+        }
+        else if (password == "") {
+            return Toast.makeText(context, "Password is required", Toast.LENGTH_SHORT).show()
+        }
+
+        // FIXME
+        val job = MainScope().launch {
+            val result = login(username, password)
+            if (result.status == HttpStatusCode.OK) {
+                Toast.makeText(context, "Login successful", Toast.LENGTH_SHORT).show()
                 changeState(AppState.DASHBOARD)
             }
+            else {
+                Toast.makeText(context, "Login failed", Toast.LENGTH_SHORT).show()
+            }
         }
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 
     Column(
