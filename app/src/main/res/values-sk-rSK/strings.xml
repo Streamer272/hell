@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="text_log_in">Prihlásiť sa</string>
+    <string name="text_username">Použivatelské meno</string>
+    <string name="text_password">Heslo</string>
+    <string name="toast_username_missing">Použivatelské meno nemôže byť prázdne</string>
+    <string name="toast_password_missing">Heslo nemôže byť prázdne</string>
+    <string name="toast_login_successful">Prihlásenie úspešné</string>
+    <string name="toast_login_failed">Prihlásenie neúspešné</string>
+    <string name="toast_creds_invalid">Zlé použivatelské meno alebo heslo</string>
+    <string name="toast_error">Niečo sa pokazilo: $ERR</string>
+</resources>

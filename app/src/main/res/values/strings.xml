@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">HellMusic</string>
+    <string name="app_name" translatable="false">HellMusic</string>
+    <string name="text_log_in">Log in</string>
+    <string name="text_username">Username</string>
+    <string name="text_password">Password</string>
+    <string name="toast_username_missing">Username is required</string>
+    <string name="toast_password_missing">Password is required</string>
+    <string name="toast_login_successful">Login successful</string>
+    <string name="toast_login_failed">Login failed</string>
+    <string name="toast_creds_invalid">Username or password is invalid</string>
+    <string name="toast_error">Something went wrong: $ERR</string>
 </resources>
