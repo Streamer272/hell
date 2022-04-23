@@ -6,7 +6,7 @@ import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.plugins.logging.*
 import io.ktor.serialization.kotlinx.json.*
 
-val backendUrl = "http://localhost:8000"
+const val BACKEND_URL = "http://192.168.1.86:8000"
 val client = HttpClient(CIO) {
     install(Logging) {
         level = LogLevel.ALL
