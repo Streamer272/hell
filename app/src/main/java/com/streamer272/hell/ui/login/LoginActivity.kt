@@ -35,13 +35,17 @@ fun LoginActivity(changeState: (AppState) -> Unit) {
         composableScope.launch {
             try {
                 val result = login(username, password)
-                println("OOOOOOOOOOOOOO: result: $result")
-                if (result.status == HttpStatusCode.OK) {
-                    Toast.makeText(context, "Login successful", Toast.LENGTH_SHORT).show()
-                    changeState(AppState.DASHBOARD)
-                }
-                else {
-                    Toast.makeText(context, "Login failed", Toast.LENGTH_SHORT).show()
+                when (result.status) {
+                    HttpStatusCode.OK -> {
+                        Toast.makeText(context, "Login successful", Toast.LENGTH_SHORT).show()
+                        changeState(AppState.DASHBOARD)
+                    }
+                    HttpStatusCode.Unauthorized -> {
+                        Toast.makeText(context, "Invalid username or password", Toast.LENGTH_SHORT).show()
+                    }
+                    else -> {
+                        Toast.makeText(context, "Login failed", Toast.LENGTH_SHORT).show()
+                    }
                 }
             } catch (e: Exception) {
                 Toast.makeText(context, "Something went wrong: ${e.message}", Toast.LENGTH_SHORT).show()
