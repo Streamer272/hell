@@ -15,12 +15,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.streamer272.hell.AppState
 import io.ktor.http.*
-import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
 @Composable
 fun LoginActivity(changeState: (AppState) -> Unit) {
     val context = LocalContext.current
+    val composableScope = rememberCoroutineScope()
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
@@ -33,14 +33,21 @@ fun LoginActivity(changeState: (AppState) -> Unit) {
         }
 
         // FIXME
-        val job = MainScope().launch {
-            val result = login(username, password)
-            if (result.status == HttpStatusCode.OK) {
-                Toast.makeText(context, "Login successful", Toast.LENGTH_SHORT).show()
-                changeState(AppState.DASHBOARD)
-            }
-            else {
-                Toast.makeText(context, "Login failed", Toast.LENGTH_SHORT).show()
+        composableScope.launch {
+            println("OOOOOOOOOOOOOO: sending request")
+
+            try {
+                val result = login(username, password)
+                println("OOOOOOOOOOOOOO: result: $result")
+                if (result.status == HttpStatusCode.OK) {
+                    Toast.makeText(context, "Login successful", Toast.LENGTH_SHORT).show()
+                    changeState(AppState.DASHBOARD)
+                }
+                else {
+                    Toast.makeText(context, "Login failed", Toast.LENGTH_SHORT).show()
+                }
+            } catch (e: Exception) {
+                println("OOOOOOOOOOOOOO: exception: $e")
             }
         }
     }

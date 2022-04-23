@@ -1,6 +1,6 @@
 package com.streamer272.hell.ui.login
 
-import com.streamer272.hell.makeRequest
+import com.streamer272.hell.api.makeRequest
 import io.ktor.client.statement.*
 import io.ktor.http.*
 
