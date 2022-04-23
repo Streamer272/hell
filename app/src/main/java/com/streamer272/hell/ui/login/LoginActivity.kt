@@ -32,10 +32,7 @@ fun LoginActivity(changeState: (AppState) -> Unit) {
             return Toast.makeText(context, "Password is required", Toast.LENGTH_SHORT).show()
         }
 
-        // FIXME
         composableScope.launch {
-            println("OOOOOOOOOOOOOO: sending request")
-
             try {
                 val result = login(username, password)
                 println("OOOOOOOOOOOOOO: result: $result")
@@ -47,7 +44,7 @@ fun LoginActivity(changeState: (AppState) -> Unit) {
                     Toast.makeText(context, "Login failed", Toast.LENGTH_SHORT).show()
                 }
             } catch (e: Exception) {
-                println("OOOOOOOOOOOOOO: exception: $e")
+                Toast.makeText(context, "Something went wrong: ${e.message}", Toast.LENGTH_SHORT).show()
             }
         }
     }
