@@ -9,4 +9,5 @@
     <string name="toast_login_failed">Login failed</string>
     <string name="toast_creds_invalid">Username or password is invalid</string>
     <string name="toast_error">Something went wrong: $ERR</string>
+    <string name="toast_password_short">Password is too short</string>
 </resources>

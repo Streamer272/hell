@@ -9,7 +9,7 @@ data class User (
 )
 
 @Serializable
-data class UserLogin (
+data class UserAuth (
     val username: String,
     val password: String,
 )

@@ -3,6 +3,7 @@ package com.streamer272.hell
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.annotation.ContentView
 import androidx.compose.runtime.*
 import com.streamer272.hell.ui.dashboard.DashboardActivity
 import com.streamer272.hell.ui.login.LoginActivity
