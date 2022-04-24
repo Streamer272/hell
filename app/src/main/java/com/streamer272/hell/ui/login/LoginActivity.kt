@@ -155,11 +155,29 @@ fun LoginActivity(changeState: (AppState) -> Unit) {
                         .background(LoginInput)
                 )
                 Spacer(modifier = Modifier.height(16.dp))
+
                 Button(
                     onClick = { login() },
                     modifier = Modifier.align(Alignment.End)
                 ) {
-                    Text(text = stringResource(R.string.text_log_in), fontSize = 18.sp)
+                    Text(text = stringResource(R.string.text_log_in), fontSize = 24.sp)
+                }
+                Spacer(modifier = Modifier.height(8.dp))
+                Row(
+                    modifier = Modifier.align(Alignment.End)
+                ) {
+                    Text(
+                        text = stringResource(R.string.text_or),
+                        fontSize = 16.sp,
+                        modifier = Modifier.align(Alignment.CenterVertically)
+                    )
+                    Spacer(modifier = Modifier.width(6.dp))
+                    Button(
+                        onClick = { register() },
+                        modifier = Modifier.align(Alignment.Bottom)
+                    ) {
+                        Text(text = stringResource(R.string.text_register), fontSize = 14.sp)
+                    }
                 }
             }
         }

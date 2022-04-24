@@ -10,4 +10,6 @@
     <string name="toast_creds_invalid">Username or password is invalid</string>
     <string name="toast_error">Something went wrong: $ERR</string>
     <string name="toast_password_short">Password is too short</string>
+    <string name="text_register">Register</string>
+    <string name="text_or">Or</string>
 </resources>

@@ -10,4 +10,6 @@
     <string name="toast_creds_invalid">Zlé použivatelské meno alebo heslo</string>
     <string name="toast_error">Niečo sa pokazilo: $ERR</string>
     <string name="toast_password_short">Heslo je príliš krátke</string>
+    <string name="text_register">Zaregistrujte sa</string>
+    <string name="text_or">Alebo</string>
 </resources>
